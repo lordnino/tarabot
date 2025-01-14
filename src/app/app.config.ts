@@ -3,9 +3,12 @@ import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import Material from '@primeng/themes/material';
-import Lara from '@primeng/themes/lara';
-import Nora from '@primeng/themes/nora';
+import { registerLocaleData } from '@angular/common';
+import localeAr from '@angular/common/locales/ar';
+import { LOCALE_ID } from '@angular/core';
+
+// Register Arabic locale
+registerLocaleData(localeAr);
 
 import { routes } from './app.routes';
 
@@ -19,5 +22,6 @@ export const appConfig: ApplicationConfig = {
         preset: Aura,
       },
     }),
+    { provide: LOCALE_ID, useValue: 'ar' },
   ],
 };

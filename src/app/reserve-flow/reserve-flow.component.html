@@ -330,7 +330,9 @@
                 </div>
                 <div class="stat flex gap-3">
                   <p class="label">تاريخ الميلاد :</p>
-                  <p class="value">{{ user_data.birth_date | date }}</p>
+                  <p class="value">
+                    {{ user_data.birth_date | date : "dd MMMM yyyy" }}
+                  </p>
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-4">
@@ -356,7 +358,9 @@
               <div class="grid grid-cols-2 gap-4">
                 <div class="stat flex gap-3">
                   <p class="label">التاريح :</p>
-                  <p class="value">{{ reserve_date | date }}</p>
+                  <p class="value">
+                    {{ reserve_date | date : "dd MMMM yyyy" }}
+                  </p>
                 </div>
                 <div class="stat flex gap-3">
                   <p class="label">الموعد :</p>
@@ -372,13 +376,13 @@
                   </div>
                   <div class="stat flex gap-3">
                     <p class="label">القيمه المضافه :</p>
-                    <p class="value">205.2 جنيه مصري</p>
+                    <p class="value">25.2 جنيه مصري</p>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                   <div class="stat flex gap-3">
                     <p class="label">الاجمالي :</p>
-                    <p class="value">385.2 جنيه مصري</p>
+                    <p class="value">205.2 جنيه مصري</p>
                   </div>
                 </div>
                 <p>

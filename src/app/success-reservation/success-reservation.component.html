@@ -1,14 +1,28 @@
 <div class="card flex justify-center">
   <p-card>
     <ng-container *ngIf="mode !== 'view'">
-      <p class="text-center text-black text-2xl">تمت العمليه بنجاح</p>
-      <div class="flex justify-center mt-5">
+      <div class="flex justify-center">
         <span class="w-20">
           <img
             src="https://www.svgrepo.com/show/422280/correct-success-tick.svg"
             alt=""
           />
         </span>
+      </div>
+      <p class="text-center text-black text-2xl mt-5">
+        تمت العمليه بنجاح رقم الحجز {{ generatedUUID }}
+      </p>
+      <div class="mt-5 flex justify-center">
+        <img src="assets/qr.png" alt="QR code" class="h-[160px] w-auto" />
+      </div>
+      <p-divider />
+    </ng-container>
+    <ng-container *ngIf="mode === 'view'">
+      <p class="text-center text-black text-2xl">
+        رقم الحجز {{ generatedUUID }}
+      </p>
+      <div class="mt-5 flex justify-center">
+        <img src="assets/qr.png" alt="QR code" class="h-[160px] w-auto" />
       </div>
       <p-divider />
     </ng-container>
@@ -49,7 +63,9 @@
       </div>
       <div class="stat flex gap-3">
         <p class="label">تاريخ الميلاد :</p>
-        <p class="value">{{ reservation?.user_data.birth_date | date }}</p>
+        <p class="value">
+          {{ reservation?.user_data.birth_date | date : "dd MMMM yyyy" }}
+        </p>
       </div>
     </div>
     <div class="grid grid-cols-2 gap-4">
@@ -75,7 +91,9 @@
     <div class="grid grid-cols-2 gap-4">
       <div class="stat flex gap-3">
         <p class="label">التاريح :</p>
-        <p class="value">{{ reservation?.reserve_date | date }}</p>
+        <p class="value">
+          {{ reservation?.reserve_date | date : "dd MMMM yyyy" }}
+        </p>
       </div>
       <div class="stat flex gap-3">
         <p class="label">الموعد :</p>
@@ -91,24 +109,24 @@
         </div>
         <div class="stat flex gap-3">
           <p class="label">القيمه المضافه :</p>
-          <p class="value">205.2 جنيه مصري</p>
+          <p class="value">25.2 جنيه مصري</p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="stat flex gap-3">
           <p class="label">الاجمالي :</p>
-          <p class="value">385.2 جنيه مصري</p>
+          <p class="value">205.2 جنيه مصري</p>
         </div>
       </div>
-      <p>رقم الحجز 215121</p>
     </p-fieldset>
-    <div class="mt-5 flex justify-center">
+    <div class="mt-5 flex justify-center gap-4">
       <p-button
         label="حسابي"
         icon="pi pi-arrow-right"
         iconPos="right"
         (onClick)="goToReservations()"
       />
+      <p-button label="طباعه" icon="pi pi-arrow-right" iconPos="right" />
     </div>
   </p-card>
 </div>

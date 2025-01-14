@@ -23,6 +23,7 @@ export class SuccessReservationComponent {
   reservation: any = window.localStorage.getItem('last_reservation');
   user: any = window.localStorage.getItem('user');
   mode: any;
+  generatedUUID: any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe((params: any) => {
@@ -36,6 +37,11 @@ export class SuccessReservationComponent {
     }
     console.log(this.reservation);
     console.log(this.user);
+    this.generatedUUID = this.generateRandomFiveDigitNumber();
+  }
+
+  generateRandomFiveDigitNumber(): number {
+    return Math.floor(10000 + Math.random() * 90000);
   }
 
   goToReservations() {

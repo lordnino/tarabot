@@ -166,20 +166,30 @@ export class ReserveFlowComponent {
       console.log(this.user);
       this.user_data.national_id = this.user.national_id;
     }
-    this.times = this.generateTimeInevals();
+    this.times = this.generateTimeIntervals();
     console.log(this.times);
   }
 
-  generateTimeInevals() {
+  generateTimeIntervals() {
     const timeIntervals = [];
 
     for (let hour = 0; hour < 24; hour++) {
       for (let minute = 0; minute < 60; minute += 15) {
+        // Generate formatted time
         const formattedHour = String(hour).padStart(2, '0');
         const formattedMinute = String(minute).padStart(2, '0');
-        timeIntervals.push(`${formattedHour}:${formattedMinute}`);
+        const time = `${formattedHour}:${formattedMinute}`;
+
+        // Only add time intervals within the range of 9:00 AM to 8:45 PM
+        if (
+          (hour > 9 || (hour === 9 && minute >= 0)) && // After 9:00 AM
+          (hour < 20 || (hour === 20 && minute <= 45)) // Before 8:45 PM
+        ) {
+          timeIntervals.push(time);
+        }
       }
     }
+
     return timeIntervals;
   }
 

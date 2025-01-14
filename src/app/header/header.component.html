@@ -1,8 +1,8 @@
-<div class="bg-[#002768]">
+<div class="bg-[#002768] main-header">
   <div class="container mx-auto px-4 flex items-center justify-between">
     <!-- Logo -->
     <div class="py-4">
-      <img src="assets/tarabot_logo.svg" alt="Logo" class="h-10 w-auto" />
+      <img src="assets/main_logo.png" alt="Logo" class="h-[60px] w-auto" />
       <!-- <img
         src="assets/logo.svg"
         alt="Logo"
@@ -11,12 +11,12 @@
     </div>
 
     <!-- Navigation Tabs -->
-    <nav class="flex nav-container items-center gap-8">
+    <nav class="flex nav-container items-center gap-8 rtl">
       <a
         (click)="goToLogin()"
         routerLinkActive="active"
         class="text-white nav transition focus:hover:text-secondary text-xl cursor-pointer"
-        >عمل حجز</a
+        >اجراء حجز</a
       >
       <a
         (click)="goToReservations()"
@@ -39,15 +39,5 @@
         >تسجيل دخول</a
       >
     </nav>
-
-    <!-- Icons -->
-    <div class="flex items-center space-x-4">
-      <button>
-        <i class="text-xl fas fa-language text-gray-600"></i>
-      </button>
-      <button>
-        <i class="text-xl fas fa-info-circle text-gray-600"></i>
-      </button>
-    </div>
   </div>
 </div>

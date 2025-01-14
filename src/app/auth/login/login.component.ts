@@ -4,6 +4,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
+import { EventService } from '../../event.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
   signupLoading: boolean = false;
   telephone: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private eventService: EventService) {
     if (window.localStorage.getItem('user')) {
       this.router.navigate(['/reserve-flow']);
     }
@@ -35,6 +36,7 @@ export class LoginComponent {
       telephone: this.telephone,
     };
     window.localStorage.setItem('user', JSON.stringify(user));
+    this.eventService.emitEvent(true);
     this.router.navigate(['/reserve-flow']);
   }
 
