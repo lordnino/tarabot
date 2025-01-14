@@ -4,10 +4,11 @@ import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-reservations',
-  imports: [TableModule, CardModule, DividerModule, ButtonModule],
+  imports: [TableModule, CardModule, DividerModule, ButtonModule, CommonModule],
   standalone: true,
   templateUrl: './all-reservations.component.html',
   styleUrl: './all-reservations.component.scss',
