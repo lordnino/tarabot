@@ -1,0 +1,114 @@
+<div class="card flex justify-center">
+  <p-card>
+    <ng-container *ngIf="mode !== 'view'">
+      <p class="text-center text-black text-2xl">تمت العمليه بنجاح</p>
+      <div class="flex justify-center mt-5">
+        <span class="w-20">
+          <img
+            src="https://www.svgrepo.com/show/422280/correct-success-tick.svg"
+            alt=""
+          />
+        </span>
+      </div>
+      <p-divider />
+    </ng-container>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">المحافظه :</p>
+        <p class="value">{{ reservation?.governrate }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">الفرع :</p>
+        <p class="value">{{ reservation?.branch }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">الاسم الاول :</p>
+        <p class="value">{{ reservation?.user_data.first_name }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">الاسم الثاني :</p>
+        <p class="value">{{ reservation?.user_data.second_name }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">الاسم الثالث :</p>
+        <p class="value">{{ reservation?.user_data.third_name }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">الاسم الرابع :</p>
+        <p class="value">{{ reservation?.user_data.foruth_name }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">الرقم قومي :</p>
+        <p class="value">{{ reservation?.user.national_id }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">تاريخ الميلاد :</p>
+        <p class="value">{{ reservation?.user.birth_date }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">النوع :</p>
+        <p class="value">{{ reservation?.user_data.gender }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">المهنه :</p>
+        <p class="value">{{ reservation?.user_data.job }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">العنوان :</p>
+        <p class="value">{{ reservation?.user_data.address }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">نوع الطلب :</p>
+        <p class="value">{{ reservation?.user_data.type }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">التاريح :</p>
+        <p class="value">{{ reservation?.reserve_date }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">الموعد :</p>
+        <p class="value">{{ reservation?.selected_time }}</p>
+      </div>
+    </div>
+    <p-divider />
+    <p-fieldset legend="تفاصيل الدفع">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="stat flex gap-3">
+          <p class="label">رسوم الخدمه :</p>
+          <p class="value">180</p>
+        </div>
+        <div class="stat flex gap-3">
+          <p class="label">القيمه المضافه :</p>
+          <p class="value">205.2</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="stat flex gap-3">
+          <p class="label">الاجمالي :</p>
+          <p class="value">385.2</p>
+        </div>
+      </div>
+      <p>رقم الحجز 215121</p>
+    </p-fieldset>
+    <div class="mt-5 flex justify-center">
+      <p-button
+        label="حجوزاتي"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+        (onClick)="goToReservations()"
+      />
+    </div>
+  </p-card>
+</div>

@@ -1,0 +1,26 @@
+::ng-deep .p-step-active .p-step-title {
+  color: #000 !important; /* Example: Change the text color */
+  font-weight: bold;
+}
+
+::ng-deep .p-step-active .p-step-number {
+  color: #fff !important;
+  background-color: #002768;
+}
+
+::ng-deep .p-step:has(~ .p-step-active) .p-stepper-separator {
+  background-color: #000 !important;
+}
+
+.p-select,
+.p-inputtext {
+  width: 100%;
+}
+
+.p-floatlabel * {
+  color: #000 !important;
+}
+
+p.label {
+  width: 25%;
+}

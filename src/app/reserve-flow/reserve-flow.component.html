@@ -1,0 +1,409 @@
+<div class="card flex justify-center">
+  <p-stepper [value]="1" class="basis-[50rem]">
+    <p-step-list>
+      <p-step [value]="1">بيانات الطلب</p-step>
+      <p-step [value]="2">بيانات مقدم الطلب</p-step>
+      <p-step [value]="3">اختيار الموعد</p-step>
+      <p-step [value]="4">المراجعه و الدفع</p-step>
+    </p-step-list>
+    <p-step-panels>
+      <p-step-panel [value]="1">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col h-48">
+            <p-card header="">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block mb-2">المحافظه :</label>
+                  <p-select
+                    id="name"
+                    name="name"
+                    [options]="governrates"
+                    [(ngModel)]="governrate"
+                    optionLabel="name"
+                    optionValue="name"
+                    placeholder="اختار المحافظه"
+                    class="w-full md:w-56"
+                  />
+                </div>
+                <div>
+                  <label for="branch" class="block mb-2">الفرع :</label>
+                  <p-select
+                    id="branch"
+                    name="branch"
+                    [options]="branches"
+                    [(ngModel)]="branch"
+                    optionLabel="name"
+                    optionValue="name"
+                    placeholder="اختار الفرع"
+                    class="w-full md:w-56"
+                  />
+                </div>
+              </div>
+              <div class="mt-5">
+                <label for="service" class="block mb-2">الخدمه :</label>
+                <p-select
+                  id="service"
+                  name="service"
+                  [options]="services"
+                  [(ngModel)]="service"
+                  optionLabel="name"
+                  optionValue="name"
+                  placeholder="اختار الخدمه"
+                  class="w-full md:w-56"
+                />
+              </div>
+              <div class="mt-5" *ngIf="service">
+                <app-roles-and-perm></app-roles-and-perm>
+              </div>
+              <div class="mt-5 flex items-center" *ngIf="service">
+                <p-checkbox
+                  [(ngModel)]="roles"
+                  class="ml-2"
+                  value="agree"
+                  inputId="ny"
+                />
+                <label for="ny" class="ml-2">اوافق علي الشروط و الاحكام</label>
+              </div>
+            </p-card>
+            <div class="flex pt-6 justify-end mb-10">
+              <p-button
+                label="التالي"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                class="mb-10"
+                (onClick)="activateCallback(2)"
+              />
+            </div>
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="2">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col">
+            <p-card header="">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="first_name"
+                      [(ngModel)]="user_data.first_name"
+                      autocomplete="off"
+                    />
+                    <label for="first_name">الاسم الاول </label>
+                  </p-floatlabel>
+                </div>
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="second_name"
+                      [(ngModel)]="user_data.second_name"
+                      autocomplete="off"
+                    />
+                    <label for="second_name">الاسم الثاني </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="third_name"
+                      [(ngModel)]="user_data.third_name"
+                      autocomplete="off"
+                    />
+                    <label for="third_name">الاسم الثالث </label>
+                  </p-floatlabel>
+                </div>
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="foruth_name"
+                      [(ngModel)]="user_data.foruth_name"
+                      autocomplete="off"
+                    />
+                    <label for="foruth_name">الاسم الثالث </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="national_id"
+                      [(ngModel)]="user_data.national_id"
+                      autocomplete="off"
+                    />
+                    <label for="national_id">رقم قومي </label>
+                  </p-floatlabel>
+                </div>
+                <div>
+                  <p-floatlabel variant="in">
+                    <p-datepicker [(ngModel)]="user_data.birth_date" />
+                    <label for="birth_date">تاريخ الميلاد </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="job"
+                      [(ngModel)]="user_data.job"
+                      autocomplete="off"
+                    />
+                    <label for="job">الوظيفه </label>
+                  </p-floatlabel>
+                </div>
+                <div>
+                  <p-floatlabel variant="in">
+                    <p-select
+                      id="gender"
+                      name="gender"
+                      [options]="genders"
+                      [(ngModel)]="user_data.gender"
+                      optionLabel="name"
+                      optionValue="name"
+                      placeholder="اختار نوع"
+                      class="w-full md:w-56"
+                    />
+                    <label for="gender">النوع </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div>
+                  <p-floatlabel variant="in">
+                    <input
+                      pInputText
+                      id="address"
+                      [(ngModel)]="user_data.address"
+                      autocomplete="off"
+                    />
+                    <label for="address">العنوان </label>
+                  </p-floatlabel>
+                </div>
+                <div>
+                  <p-floatlabel variant="in">
+                    <p-select
+                      id="type"
+                      name="name"
+                      [options]="types"
+                      [(ngModel)]="user_data.type"
+                      optionLabel="name"
+                      optionValue="name"
+                      placeholder="اختار الخدمه"
+                      class="w-full md:w-56"
+                    />
+                    <label for="name">الخدمه </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+            </p-card>
+          </div>
+          <div class="flex pt-6 justify-between">
+            <p-button
+              label="السابق"
+              severity="secondary"
+              icon="pi pi-arrow-left"
+              (onClick)="activateCallback(1)"
+            />
+            <p-button
+              label="التالي"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              (onClick)="activateCallback(3)"
+            />
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="3">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col">
+            <p-card>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">المحافظه :</p>
+                  <p class="value">{{ governrate }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">الفرع :</p>
+                  <p class="value">{{ branch }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 gap-4 mt-5">
+                <div class="stat flex gap-3">
+                  <p class="label">الاسم :</p>
+                  <p class="value">
+                    {{ user_data.first_name }} {{ user_data.second_name }}
+                    {{ user_data.third_name }} {{ user_data.foruth_name }}
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 gap-4 mt-5">
+                <div>
+                  <p-floatlabel variant="in">
+                    <p-datepicker [(ngModel)]="reserve_date" />
+                    <label for="birth_date">تاريخ الميلاد </label>
+                  </p-floatlabel>
+                </div>
+              </div>
+              <div class="mt-5">
+                <p for="reserve_time">اختر الوقت :</p>
+                <div class="times flex gap-2 flex-wrap">
+                  <div
+                    *ngFor="let time of times"
+                    (click)="selectTime(time)"
+                    class="px-3 py-1 bg-[#3a3a3a] text-white rounded-lg cursor-pointer"
+                    [ngClass]="{
+                      'bg-main': selected_time === time
+                    }"
+                  >
+                    {{ time }}
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+          <div class="flex pt-6 justify-between">
+            <p-button
+              label="السابق"
+              severity="secondary"
+              icon="pi pi-arrow-left"
+              (onClick)="activateCallback(2)"
+            />
+            <p-button
+              label="التالي"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              (onClick)="activateCallback(4)"
+            />
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="4">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col">
+            <p-card>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">المحافظه :</p>
+                  <p class="value">{{ governrate }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">الفرع :</p>
+                  <p class="value">{{ branch }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">الاسم الاول :</p>
+                  <p class="value">{{ user_data.first_name }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">الاسم الثاني :</p>
+                  <p class="value">{{ user_data.second_name }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">الاسم الثالث :</p>
+                  <p class="value">{{ user_data.third_name }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">الاسم الرابع :</p>
+                  <p class="value">{{ user_data.foruth_name }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">الرقم قومي :</p>
+                  <p class="value">{{ user.national_id }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">تاريخ الميلاد :</p>
+                  <p class="value">{{ user.birth_date }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">النوع :</p>
+                  <p class="value">{{ user_data.gender }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">المهنه :</p>
+                  <p class="value">{{ user_data.job }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">العنوان :</p>
+                  <p class="value">{{ user_data.address }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">نوع الطلب :</p>
+                  <p class="value">{{ user_data.type }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="stat flex gap-3">
+                  <p class="label">التاريح :</p>
+                  <p class="value">{{ reserve_date }}</p>
+                </div>
+                <div class="stat flex gap-3">
+                  <p class="label">الموعد :</p>
+                  <p class="value">{{ selected_time }}</p>
+                </div>
+              </div>
+              <p-divider />
+              <p-fieldset legend="تفاصيل الدفع">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="stat flex gap-3">
+                    <p class="label">رسوم الخدمه :</p>
+                    <p class="value">180</p>
+                  </div>
+                  <div class="stat flex gap-3">
+                    <p class="label">القيمه المضافه :</p>
+                    <p class="value">205.2</p>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="stat flex gap-3">
+                    <p class="label">الاجمالي :</p>
+                    <p class="value">385.2</p>
+                  </div>
+                </div>
+                <p>
+                  الرسوم المدفوعه هي رسوم مقابل خدمه مميزه خلافا لرسوم الوثائق
+                  المقدم عليها
+                </p>
+              </p-fieldset>
+            </p-card>
+          </div>
+          <div class="flex pt-6 justify-between">
+            <p-button
+              label="السابق"
+              severity="secondary"
+              icon="pi pi-arrow-left"
+              (onClick)="activateCallback(3)"
+            />
+            <p-button
+              label="الدفع"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              (onClick)="pay()"
+            />
+          </div>
+        </ng-template>
+      </p-step-panel>
+    </p-step-panels>
+  </p-stepper>
+</div>

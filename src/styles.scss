@@ -1,1 +1,147 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities; /* You can add global styles to this file, and also import other style files */
+:root {
+  /* General Colors */
+  --p-primary-color: #121212; /* Dark black primary color */
+  --p-primary-dark-color: #000000; /* Pure black for darker areas */
+  --p-primary-light-color: #1e1e1e; /* Slightly lighter black for contrasts */
+  --p-surface-color: #1e1e1e; /* Background for components */
+  --p-surface-border-color: #333333; /* Border for components */
+  --p-hover-surface-color: #2c2c2c; /* Hover effect */
+  --p-text-color: #e0e0e0; /* Light gray text */
+  --p-text-secondary-color: #bdbdbd; /* Dimmed text */
+  --p-border-color: #444444; /* Border for inputs and components */
+  --p-input-border-color: #555555; /* Input field border */
+
+  /* Buttons */
+  --p-button-primary-background: #121212; /* Black button background */
+  --p-button-primary-hover-background: #1e1e1e !important;
+  --p-primary-hover-color: #1e1e1e; /* Slightly lighter black on hover */
+  --p-button-primary-active-background: #000000; /* Pure black on active */
+  --p-button-primary-border-color: #333333; /* Border for buttons */
+  --p-button-primary-text-color: #ffffff; /* White text for buttons */
+
+  /* Inputs */
+  --p-input-background: #1e1e1e; /* Input field background */
+  --p-input-text-color: #e0e0e0; /* Text inside inputs */
+  --p-input-placeholder-color: #888888; /* Placeholder text color */
+  --p-input-hover-border-color: #555555; /* Border on hover */
+
+  /* Cards and Panels */
+  --p-card-background: #121212; /* Black card background */
+  --p-card-header-background: #1e1e1e; /* Slightly lighter for header */
+  --p-card-border-color: #333333; /* Border for cards */
+  --p-card-text-color: #e0e0e0; /* Text color for cards */
+
+  /* Highlight Colors */
+  --p-highlight-color: #333333; /* Highlight for hover/focus */
+  --p-highlight-text-color: #ffffff; /* Highlight text */
+
+  /* Error and Warning */
+  --p-error-color: #ff5252; /* Red for error states */
+  --p-warning-color: #ffa000; /* Amber for warnings */
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  min-height: 100vh;
+  // background-color: #002768
+  background-color: #fff;
+}
+
+.inria-serif-light {
+  font-family: "Inria Serif", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inria-serif-regular {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inria-serif-bold {
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.inria-serif-light-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.inria-serif-regular-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.inria-serif-bold-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+* {
+  font-family: inria-serif-bold;
+}
+
+.p-button {
+  background: #002768 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.p-card-body {
+  background-color: #fff;
+  color: #000;
+}
+
+.p-select {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.p-select-label {
+  color: #000 !important;
+}
+
+.p-inputtext {
+  background-color: #fff;
+  color: #000;
+  width: 50%;
+}
+
+.p-floatlabel label {
+  color: #000;
+}
+
+.p-inputtext {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.p-datepicker {
+  width: 100%;
+}
+
+.p-step-active .p-step-number {
+  background-color: #002768 !important;
+}
+
+.p-fieldset {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.p-fieldset-legend {
+  background-color: #002768 !important;
+  color: #fff !important;
+}

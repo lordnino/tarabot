@@ -1,0 +1,50 @@
+<div class="card">
+  <p-card>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">البريد :</p>
+        <p class="value">{{ user?.email }}</p>
+      </div>
+      <div class="stat flex gap-3">
+        <p class="label">الرقم القومي :</p>
+        <p class="value">{{ user?.national_id }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="stat flex gap-3">
+        <p class="label">رقم التليفون :</p>
+        <p class="value">{{ user?.telephone }}</p>
+      </div>
+    </div>
+  </p-card>
+
+  <div class="mt-5">
+    <p-card>
+      <p-table [value]="reservations" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+          <tr>
+            <th>التاريخ</th>
+            <th>الموعد</th>
+            <th>النوع</th>
+            <th>المزيد</th>
+          </tr>
+        </ng-template>
+        <ng-template #body let-reservation>
+          <tr>
+            <td>{{ reservation.reserve_date }}</td>
+            <td>{{ reservation.selected_time }}</td>
+            <td>{{ reservation.service }}</td>
+            <td>
+              <p-button
+                label="الذهاب للحجز"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                (onClick)="goToReservation(reservation)"
+              />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>

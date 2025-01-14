@@ -1,0 +1,84 @@
+<div>
+  <h1 class="text-3xl text-black">تسجيل مستخدم جديد</h1>
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="national_id"
+        [(ngModel)]="national_id"
+        autocomplete="off"
+      />
+      <label for="national_id">الرقم القومي</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input pInputText id="email" [(ngModel)]="email" autocomplete="off" />
+      <label for="email">البريد الالكتروني</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="telephone"
+        [(ngModel)]="telephone"
+        autocomplete="off"
+      />
+      <label for="telephone">رقم الهاتف </label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="password"
+        [(ngModel)]="password"
+        autocomplete="off"
+        type="password"
+      />
+      <label for="password">كلمه المرور</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="confirm_password"
+        [(ngModel)]="confirm_password"
+        autocomplete="off"
+        type="password"
+      />
+      <label for="confirm_password">تأكيد كلمة المرور</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-5 w-[50%] flex">
+    <p-button
+      label="تسجيل"
+      icon="pi pi-check"
+      class="p-button-stone"
+      [loading]="signupLoading"
+      (onClick)="register()"
+      [disabled]="
+        !national_id ||
+        !email ||
+        !telephone ||
+        !password ||
+        !confirm_password ||
+        password !== confirm_password
+      "
+    />
+    <!-- <p-button
+      class="mx-4"
+      label="مستخدم جديد"
+      icon="pi pi-check"
+      [loading]="signupLoading"
+      (onClick)="register()"
+    /> -->
+  </div>
+</div>

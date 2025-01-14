@@ -1,0 +1,84 @@
+<div>
+  <h1 class="text-3xl text-black">تسجيل الدخول</h1>
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="national_id"
+        [(ngModel)]="national_id"
+        autocomplete="off"
+      />
+      <label for="national_id">الرقم القومي</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input pInputText id="email" [(ngModel)]="email" autocomplete="off" />
+      <label for="email">البريد الالكتروني</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="telephone"
+        [(ngModel)]="telephone"
+        autocomplete="off"
+      />
+      <label for="telephone">رقم الهاتف </label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-10">
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="password"
+        [(ngModel)]="password"
+        autocomplete="off"
+        type="password"
+      />
+      <label for="password">كلمه المرور</label>
+    </p-floatlabel>
+  </div>
+
+  <div class="mt-5 w-[50%]">
+    <p class="text-left text-main">نسيت كلمه المرور ؟</p>
+  </div>
+
+  <div class="mt-5 w-[50%] flex">
+    <p-button
+      label="تسجيل دخول"
+      icon="pi pi-check"
+      class="p-button-stone"
+      [loading]="loading"
+      (onClick)="login()"
+      [disabled]="!national_id || !email || !telephone || !password"
+    />
+    <p-button
+      class="mx-4"
+      label="مستخدم جديد"
+      icon="pi pi-check"
+      [loading]="signupLoading"
+      (onClick)="register()"
+    />
+  </div>
+
+  <!-- <p-floatlabel variant="in">
+    <input pInputText id="national_id" [(ngModel)]="national_id" autocomplete="off" />
+    <label for="national_id">الرقم القومي</label>
+  </p-floatlabel>
+
+  <p-floatlabel variant="on">
+    <input
+      pInputText
+      id="on_label"
+      [(ngModel)]="value2"
+      autocomplete="off"
+      type="password"
+    />
+    <label for="on_label">كلمه السر</label>
+  </p-floatlabel> -->
+</div>
